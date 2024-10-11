@@ -1,0 +1,151 @@
+<!-- ............................The tests menu............................. -->
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="icons8-student-registration-48.png"
+      type="image/x-icon"
+    />
+    <title>الأحياء</title>
+    <link rel="stylesheet" href="style1 ar.css" />
+  </head>
+  <body>
+    <h1>
+      <span id="score">0</span>
+    </h1>
+    <div class="container">
+      <div class="slider">
+        <!-- Test1 -->
+        <div class="button-container1">
+          <div class="questions">
+            <h2>.......<br />[]<br />[]<br />[]<br />[]<br /></h2>
+          </div>
+          <br />
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons1()" class="unscore-btn">.أ.</button>
+            <button onclick="disableButtons1()" class="unscore-btn">.ب.</button>
+          </div>
+          <br />
+          <p class="correct1">✓</p>
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons1()" class="unscore-btn">.ج.</button>
+            <button class="score-btn1">.د.</button>
+          </div>
+        </div>
+        <!-- Test2 -->
+        <div class="button-container2">
+          <div class="questions">
+            <h2>.......<br />[]<br />[]<br />[]<br />[]<br /></h2>
+          </div>
+          <br />
+          <br />
+          <div class="ml-btns">
+            <button class="score-btn2">.أ.</button>
+            <button onclick="disableButtons2()" class="unscore-btn">.ب.</button>
+          </div>
+          <br />
+          <p class="correct2">✓</p>
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons2()" class="unscore-btn">.ج.</button>
+            <button onclick="disableButtons2()" class="unscore-btn">.د.</button>
+          </div>
+        </div>
+        <!-- Test3 -->
+        <div class="button-container3">
+          <div class="questions">
+            <h2>.......<br />[]<br />[]<br />[]<br />[]<br /></h2>
+          </div>
+          <br />
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons3()" class="unscore-btn">.أ.</button>
+            <button onclick="disableButtons3()" class="unscore-btn">.ب.</button>
+          </div>
+          <br />
+          <p class="correct3">✓</p>
+          <br />
+          <div class="ml-btns">
+            <button class="score-btn3">.ج.</button>
+            <button onclick="disableButtons3()" class="unscore-btn">.د.</button>
+          </div>
+        </div>
+        <!-- Test4 -->
+        <div class="button-container4">
+          <div class="questions">
+            <h2>.......<br />[]<br />[]<br />[]<br />[]<br /></h2>
+          </div>
+          <br />
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons4()" class="unscore-btn">.أ.</button>
+            <button onclick="disableButtons4()" class="unscore-btn">.ب.</button>
+          </div>
+          <br />
+          <p class="correct4">✓</p>
+          <br />
+          <div class="ml-btns">
+            <button onclick="disableButtons4()" class="unscore-btn">.ج.</button>
+            <button class="score-btn4">.د.</button>
+          </div>
+        </div>
+        <!-- Test5 -->
+        <div class="button-container5">
+          <div class="questions">
+            <h2>
+              ......
+              <strong style="color: #a08a2a">[...]</strong> ?
+            </h2>
+          </div>
+          <br />
+          <br />
+          <div class="ml-btns">
+            <button class="score-btn5">.أ.</button>
+            <button onclick="disableButtons5()" class="unscore-btn">.ب.</button>
+          </div>
+          <br />
+          <p class="correct5">✓</p>
+        </div>
+        <!-- Finsh test -->
+        <div class="finsh">
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <button onclick="transferScore()" class="finsh-btn">
+            الانتهاء من الإختبار
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Next and Previous buttons -->
+    <button
+      onclick="slideNext()"
+      style="margin: 0%; margin-top: 2%; width: fit-content"
+      class="next"
+    >
+      التالي
+    </button>
+    <br />
+    <button
+      onclick="slidePrev()"
+      style="margin: 0%; margin-bottom: 2%; width: fit-content"
+      class="previous"
+    >
+      السابق
+    </button>
+    <script src="script q.js"></script>
+    <script>
+      document
+        .querySelector(".finsh-btn")
+        .addEventListener("click", function () {
+          const score = document.getElementById("score").textContent;
+          localStorage.setItem("lastScore", score);
+
+          window.location.href = "index1.html";
+        });
+    </script>
+  </body>
+</html>
