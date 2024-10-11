@@ -256,7 +256,7 @@
 
       function transferScore() {
         localStorage.setItem("lastScore", score);
-        window.location.href = "index1.html";
+        window.location.href = "index.html";
       }
 
       function slideNext() {
