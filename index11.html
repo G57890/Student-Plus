@@ -4,11 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="icons8-student-registration-48.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="icons8-student-registration-48.png" type="image/x-icon" />
     <title>الأحياء</title>
     <link rel="stylesheet" href="style1 ar.css" />
   </head>
@@ -36,15 +32,15 @@
           <br />
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons1()" class="unscore-btn">.أ.</button>
-            <button onclick="disableButtons1()" class="unscore-btn">.ب.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.أ.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ب.</button>
           </div>
           <br />
           <p class="correct1">✓</p>
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons1()" class="unscore-btn">.ج.</button>
-            <button class="score-btn1">.د.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ج.</button>
+            <button onclick="handleButtonClick(this, true)" class="score-btn1">.د.</button>
           </div>
         </div>
         <!-- Test2 -->
@@ -59,15 +55,15 @@
           <br />
           <br />
           <div class="ml-btns">
-            <button class="score-btn2">.أ.</button>
-            <button onclick="disableButtons2()" class="unscore-btn">.ب.</button>
+            <button onclick="handleButtonClick(this, true)" class="score-btn2">.أ.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ب.</button>
           </div>
           <br />
           <p class="correct2">✓</p>
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons2()" class="unscore-btn">.ج.</button>
-            <button onclick="disableButtons2()" class="unscore-btn">.د.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ج.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.د.</button>
           </div>
         </div>
         <!-- Test3 -->
@@ -83,15 +79,15 @@
           <br />
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons3()" class="unscore-btn">.أ.</button>
-            <button onclick="disableButtons3()" class="unscore-btn">.ب.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.أ.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ب.</button>
           </div>
           <br />
           <p class="correct3">✓</p>
           <br />
           <div class="ml-btns">
-            <button class="score-btn3">.ج.</button>
-            <button onclick="disableButtons3()" class="unscore-btn">.د.</button>
+            <button onclick="handleButtonClick(this, true)" class="score-btn3">.ج.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.د.</button>
           </div>
         </div>
         <!-- Test4 -->
@@ -105,9 +101,7 @@
                 src="WhatsApp Image 2024-10-14 at 04.18.56_dbe07c2d.jpg"
                 alt="الجزء الخلفي من الجراد"
               />
-              <br />أ- المخ.
-              <br />ب- الحبل العصبي البطني.
-              <br />ج- عقد عضلية.
+              <br />أ- المخ. <br />ب- الحبل العصبي البطني. <br />ج- عقد عضلية.
               <br />د- عقد عصبية.
               <br />
             </h2>
@@ -115,31 +109,31 @@
           <br />
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons4()" class="unscore-btn">.أ.</button>
-            <button onclick="disableButtons4()" class="unscore-btn">.ب.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.أ.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ب.</button>
           </div>
           <br />
           <p class="correct4">✓</p>
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons4()" class="unscore-btn">.ج.</button>
-            <button class="score-btn4">.د.</button>
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.ج.</button>
+            <button onclick="handleButtonClick(this, true)" class="score-btn4">.د.</button>
           </div>
         </div>
         <!-- Test5 -->
         <div class="button-container5">
           <div class="questions">
             <h2>
-              س5- صح أم خطأ: نوع الرسالة العصبية للجذر الأمامي للحبل الشوكي هي رسالة
+              س5- صح أم خطأ: نوع الرسالة العصبية للجذر الأمامي للحبل الشوكي هي
+              رسالة
               <strong style="color: #c9b146">واردة (حسيه)</strong> ?
             </h2>
           </div>
           <br />
           <br />
           <div class="ml-btns">
-            <button onclick="disableButtons5()" class="unscore-btn">.أ.</button>
-            <button class="score-btn5">.ب.</button>
-            
+            <button onclick="handleButtonClick(this, false)" class="unscore-btn">.أ.</button>
+            <button onclick="handleButtonClick(this, true)" class="score-btn5">.ب.</button>
           </div>
           <br />
           <p class="correct5">✓</p>
@@ -169,16 +163,57 @@
     >
       السابق
     </button>
-    <script src="script q.js"></script>
     <script>
-      document
-        .querySelector(".finsh-btn")
-        .addEventListener("click", function () {
-          const score = document.getElementById("score").textContent;
-          localStorage.setItem("lastScore", score);
+      const slider = document.querySelector(".slider");
+      let slideIndex = 0;
+      const scoreDisplay = document.getElementById("score");
+      let score = 0;
 
-          window.location.href = "index.html";
-        });
+      function handleButtonClick(button, isCorrect) {
+        const container = button.closest('.button-container1, .button-container2, .button-container3, .button-container4, .button-container5');
+        const buttons = container.querySelectorAll("button");
+        buttons.forEach(btn => btn.disabled = true);
+
+        const correctElement = container.querySelector(`.correct${slideIndex + 1}`);
+        correctElement.textContent = isCorrect ? '✓' : 'X';
+        correctElement.classList.add('active');
+
+        if (isCorrect) {
+          score++;
+          scoreDisplay.textContent = score;
+          animateScore();
+        }
+
+        setTimeout(() => {
+          correctElement.classList.remove('active');
+          slideNext();
+        }, 1500);
+      }
+
+      function animateScore() {
+        scoreDisplay.style.transition = "font-size 0.3s ease-in-out";
+        scoreDisplay.style.fontSize = "80px";
+
+        setTimeout(() => {
+          scoreDisplay.style.fontSize = "60px";
+          scoreDisplay.style.transition = "";
+        }, 300);
+      }
+
+      function slideNext() {
+        slideIndex = (slideIndex + 1) % 6;
+        slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+
+      function slidePrev() {
+        slideIndex = (slideIndex - 1 + 6) % 6;
+        slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+
+      function transferScore() {
+        localStorage.setItem("lastScore", score);
+        window.location.href = "index.html";
+      }
     </script>
   </body>
 </html>
